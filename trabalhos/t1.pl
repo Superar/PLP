@@ -57,3 +57,16 @@ conta_atomos(Lista1, Lista2, ListaOut) :- desparentize(Lista1, Aux1),
                                           tira_nao_comuns(Aux2, Aux1, ListaFinal2),
                                           append(ListaFinal1, ListaFinal2, ListaFinal),
                                           monta_pares(ListaFinal, ListaOut).
+
+
+%% main()
+% Predicado principal.
+% Lê duas listas do usuário.
+% Retorna para o usuário uma lista de pares descrito em conta_atomos.
+main() :- write('Digite a primeira lista: '), nl,
+          read(Lista1),
+          write('Digite a segunda lista: '), nl,
+          read(Lista2),
+          conta_atomos(Lista1, Lista2, ListaOut),
+          write('A lista de pares é: '), nl,
+          write(ListaOut).
