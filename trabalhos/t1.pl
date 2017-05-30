@@ -5,6 +5,8 @@ desparentize([Cabeca | Cauda], ListaOut) :- is_list(Cabeca),
                                             desparentize(Cabeca, Aux1),
                                             desparentize(Cauda, Aux2),
                                             append(Aux1, Aux2, ListaOut), !.
+desparentize([Cabeca | Cauda], [Cabeca | CaudaOut]) :- compound(Cabeca),
+                                                       desparentize(Cauda, CaudaOut), !.
 desparentize([_ | Cauda], ListaOut) :- desparentize(Cauda, ListaOut).
 
 
