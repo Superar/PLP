@@ -12,3 +12,9 @@ tira_nao_comuns([], _, []) :- !.
 tira_nao_comuns([Cabeca | Cauda], Lista2, [Cabeca | CaudaOut]) :- member(Cabeca, Lista2),
                                                                   tira_nao_comuns(Cauda, Lista2, CaudaOut), !.
 tira_nao_comuns([_ | Cauda], Lista2, ListaOut) :- tira_nao_comuns(Cauda, Lista2, ListaOut).
+
+
+elimina_repetidos([], []) :- !.
+elimina_repetidos([Cabeca | Cauda], ListaOut) :- member(Cabeca, Cauda),
+                                                 elimina_repetidos(Cauda, ListaOut), !.
+elimina_repetidos([Cabeca | Cauda], [Cabeca | CaudaOut]) :- elimina_repetidos(Cauda, CaudaOut).
