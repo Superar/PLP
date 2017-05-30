@@ -23,3 +23,8 @@ elimina_repetidos([Cabeca | Cauda], [Cabeca | CaudaOut]) :- elimina_repetidos(Ca
 quantas_vezes(_, [], 0) :- !.
 quantas_vezes(X, [X | Cauda], N) :- quantas_vezes(X, Cauda, Aux), N is Aux + 1, !.
 quantas_vezes(X, [_ | Cauda], N) :- quantas_vezes(X, Cauda, N).
+
+
+elimina_ocorrencias(_, [], []) :- !.
+elimina_ocorrencias(X, [X | Cauda], Lout) :- elimina_ocorrencias(X, Cauda, Lout), !.
+elimina_ocorrencias(X, [Cabeca | Cauda], [Cabeca | CaudaOut]) :- elimina_ocorrencias(X, Cauda, CaudaOut).
