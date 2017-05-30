@@ -16,12 +16,6 @@ tira_nao_comuns([Cabeca | Cauda], Lista2, [Cabeca | CaudaOut]) :- member(Cabeca,
 tira_nao_comuns([_ | Cauda], Lista2, ListaOut) :- tira_nao_comuns(Cauda, Lista2, ListaOut).
 
 
-elimina_repetidos([], []) :- !.
-elimina_repetidos([Cabeca | Cauda], ListaOut) :- member(Cabeca, Cauda),
-                                                 elimina_repetidos(Cauda, ListaOut), !.
-elimina_repetidos([Cabeca | Cauda], [Cabeca | CaudaOut]) :- elimina_repetidos(Cauda, CaudaOut).
-
-
 quantas_vezes(_, [], 0) :- !.
 quantas_vezes(X, [X | Cauda], N) :- quantas_vezes(X, Cauda, Aux), N is Aux + 1, !.
 quantas_vezes(X, [_ | Cauda], N) :- quantas_vezes(X, Cauda, N).
