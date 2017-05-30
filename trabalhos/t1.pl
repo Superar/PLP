@@ -1,13 +1,11 @@
 desparentize([], []) :- !.
 desparentize([Cabeca | Cauda], [Cabeca | CaudaOut]) :- atomic(Cabeca),
-                                                     desparentize(Cauda, CaudaOut), !.
-desparentize([Cabeca | Cauda], ListaOut) :- var(Cabeca),
-                                            desparentize(Cauda, ListaOut), !.
+                                                       desparentize(Cauda, CaudaOut), !.
 desparentize([Cabeca | Cauda], ListaOut) :- is_list(Cabeca),
                                             desparentize(Cabeca, Aux1),
                                             desparentize(Cauda, Aux2),
                                             append(Aux1, Aux2, ListaOut), !.
-desparentize([Cabeca | Cauda], ListaOut) :- desparentize(Cauda, ListaOut).
+desparentize([_ | Cauda], ListaOut) :- desparentize(Cauda, ListaOut).
 
 
 tira_nao_comuns([], _, []) :- !.
