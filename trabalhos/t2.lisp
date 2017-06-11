@@ -1,7 +1,7 @@
 ; Dada uma lista L, constrói uma lista com apenas os elementos atômicos,
 ; inclusive os das sublistas.
 (defun desparentize (L)
-  (cond ((null L) nil)
+  (cond ((null L) (list L))
         ((atom L) (list L))
         (t (append (desparentize (car L)) (desparentize (cdr L))))))
 
@@ -51,4 +51,4 @@
   (write (conta_elementos L1 L2)))
 
 ; Inicializa o programa
-(write)
+(main)
