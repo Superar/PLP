@@ -1,9 +1,21 @@
 ; Dada uma lista L, constrói uma lista com apenas os elementos atômicos,
 ; inclusive os das sublistas.
+; (defun desparentize (L)
+;   (cond ((null L) nil)
+;         ((atom L) (list L))
+;         (t (append (desparentize (car L)) (desparentize (cdr L))))))
+
 (defun desparentize (L)
-  (cond ((null L) nil)
-        ((atom L) (list L))
-        (t (append (desparentize (car L)) (desparentize (cdr L))))))
+  (do ( (i 0 (+ i 1)) (res ()) )
+    ( (= i (length L)) (reverse res) )
+    (cond
+      ; Se L[i] for átomo, adiciona a res
+      ( (atom (nth i L)) (setq res (cons (nth i L) res)) )
+      ; Se L[i] for lista, aplica desparentize nela e dá append com res
+      ( (listp (nth i L)) (setq res (append (reverse (desparentize (nth i L))) res)) )
+    )
+  )
+)
 
 ; Dadas duas listas L1 e L2, retira de L1 os elementos que não aparecem em L2.
 (defun tira_nao_comuns (L1 L2)
@@ -51,4 +63,4 @@
   (write (conta_elementos L1 L2)))
 
 ; Inicializa o programa
-(write)
+; (main)
