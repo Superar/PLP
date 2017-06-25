@@ -63,4 +63,4 @@
   (write (conta_elementos L1 L2)))
 
 ; Inicializa o programa
-; (main)
+(main)
