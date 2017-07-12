@@ -1,0 +1,304 @@
+\documentclass[12pt]{article}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[left=1cm, right=1cm, top=1cm, bottom=1cm]{geometry}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+\font\myfont=cmr12 at 13pt
+\font\myfontmenor = cmr12 at 11pt
+\title{\myfont{Trabalho 3 de PLP: Programação Concorrente}}
+\author{\myfontmenor{Felipe Sampaio de Souza, RA: 619523} \\ \myfontmenor{Marcio Lima Inácio, RA: 587265}}
+\date{ }
+
+\begin{document}
+    \maketitle
+
+    \section{Classes}
+    \subsection{Sala}
+    \lstinputlisting{t3/src/com/company/Sala.java}
+
+    \newpage
+    \subsection{Aulas Teoricas}
+    \lstinputlisting{t3/src/com/company/AulasTeoricas.java}
+
+    \newpage
+    \subsection{Thread para Reservas}
+    \lstinputlisting{t3/src/com/company/ReservaThread.java}
+
+    \newpage
+    \subsection{Sistema de Reservas}
+    \lstinputlisting{t3/src/com/company/SistemaDeReservas.java}
+
+    \newpage
+    \section{Execução}
+    \paragraph{Primeira execução}
+
+    \begin{verbatim}
+
+        Salas criadas
+
+        Sala: 0; Tamanho: 40
+        Sala: 1; Tamanho: 83
+        Sala: 2; Tamanho: 9
+        Sala: 3; Tamanho: 82
+        Sala: 4; Tamanho: 16
+        Sala: 5; Tamanho: 91
+        Sala: 6; Tamanho: 8
+        Sala: 7; Tamanho: 73
+        Sala: 8; Tamanho: 43
+        Sala: 9; Tamanho: 10
+
+        Thread de Nicanor; 1 operacoes
+
+        Thread de Vania; 3 operacoes
+
+        Thread de Heloisa; 1 operacoes
+
+        Thread de Nicanor; 1 operacoes
+
+        Thread de Vania; 3 operacoes
+
+        Thread de Heloisa; 1 operacoes
+
+        Sala 1 reservada para Nicanor
+        Sala 3 reservada para Vania
+        Sala 5 reservada para Heloisa
+        Sala 0 reservada para Valter
+        Sala 8 reservada para Helena
+        Nao foi possivel reservar uma sala para Helio
+        Sala 0 liberada
+        Sala 7 reservada para Valter
+        Nao foi possivel reservar uma sala para Helio
+        Sala 3 liberada
+        Sala 3 reservada para Helio
+        Nao foi possivel reservar uma sala para Vania
+        Sala 8 liberada
+        Sala 8 reservada para Helena
+        Nao foi possivel reservar uma sala para Vania
+        Sala 3 liberada
+        Sala 3 reservada para Helio
+        Nao foi possivel reservar uma sala para Vania
+        Sala 5 liberada
+        Sala 5 reservada para Vania
+        Sala 7 liberada
+        Sala 7 reservada para Valter
+        Sala 1 liberada
+        Sala 8 liberada
+        Nao foi possivel reservar uma sala para Helena
+        Sala 7 liberada
+        Sala 1 reservada para Valter
+        Sala 7 reservada para Helena
+        Sala 5 liberada
+        Sala 0 reservada para Vania
+        Sala 3 liberada
+        Sala 1 liberada
+        Sala 1 reservada para Valter
+        Sala 7 liberada
+        Sala 2 reservada para Helena
+        Sala 0 liberada
+        Sala 1 liberada
+        Sala 5 reservada para Valter
+        Sala 2 liberada
+        Sala 1 reservada para Helena
+        Sala 1 liberada
+        Sala 0 reservada para Helena
+        Sala 0 liberada
+        Sala 0 reservada para Helena
+        Sala 5 liberada
+        Sala 0 liberada
+    \end{verbatim}
+
+    \paragraph{Segunda execução}
+
+    \begin{verbatim}
+        Salas criadas
+        Sala: 0; Tamanho: 43
+        Sala: 1; Tamanho: 30
+        Sala: 2; Tamanho: 93
+        Sala: 3; Tamanho: 34
+        Sala: 4; Tamanho: 3
+        Sala: 5; Tamanho: 90
+        Sala: 6; Tamanho: 74
+        Sala: 7; Tamanho: 37
+        Sala: 8; Tamanho: 69
+        Sala: 9; Tamanho: 73
+
+        Thread de Nicanor; 2 operacoes
+
+        Thread de Vania; 3 operacoes
+
+        Thread de Heloisa; 6 operacoes
+
+        Thread de Nicanor; 2 operacoes
+
+        Thread de Vania; 3 operacoes
+
+        Thread de Heloisa; 6 operacoes
+
+        Sala 5 reservada para Nicanor
+        Sala 6 reservada para Vania
+        Sala 0 reservada para Heloisa
+        Sala 9 reservada para Valter
+        Nao foi possivel reservar uma sala para Helena
+        Sala 2 reservada para Helio
+        Nao foi possivel reservar uma sala para Helena
+        Sala 5 liberada
+        Sala 1 reservada para Nicanor
+        Sala 5 reservada para Helena
+        Sala 9 liberada
+        Sala 9 reservada para Valter
+        Sala 1 liberada
+        Sala 6 liberada
+        Sala 6 reservada para Vania
+        Sala 5 liberada
+        Sala 8 reservada para Helena
+        Sala 2 liberada
+        Sala 5 reservada para Helio
+        Sala 0 liberada
+        Sala 0 reservada para Heloisa
+        Sala 9 liberada
+        Sala 9 reservada para Valter
+        Sala 8 liberada
+        Nao foi possivel reservar uma sala para Helena
+        Sala 5 liberada
+        Sala 5 reservada para Helena
+        Sala 1 reservada para Helio
+        Sala 0 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 6 liberada
+        Sala 6 reservada para Vania
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 1 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 0 reservada para Helio
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 9 liberada
+        Sala 9 reservada para Heloisa
+        Sala 0 liberada
+        Sala 2 reservada para Helio
+        Sala 6 liberada
+        Sala 5 liberada
+        Sala 8 reservada para Helena
+        Sala 8 liberada
+        Sala 5 reservada para Helena
+        Sala 9 liberada
+        Sala 0 reservada para Heloisa
+        Sala 0 liberada
+        Sala 6 reservada para Heloisa
+        Sala 5 liberada
+        Sala 6 liberada
+        Sala 0 reservada para Heloisa
+        Sala 2 liberada
+        Sala 0 liberada
+    \end{verbatim}
+
+    \paragraph{Terceira execução}
+
+    \begin{verbatim}
+        Salas criadas
+        Sala: 0; Tamanho: 28
+        Sala: 1; Tamanho: 35
+        Sala: 2; Tamanho: 0
+        Sala: 3; Tamanho: 4
+        Sala: 4; Tamanho: 64
+        Sala: 5; Tamanho: 1
+        Sala: 6; Tamanho: 77
+        Sala: 7; Tamanho: 68
+        Sala: 8; Tamanho: 26
+        Sala: 9; Tamanho: 66
+
+        Thread de Nicanor; 6 operacoes
+
+        Thread de Vania; 2 operacoes
+
+        Thread de Heloisa; 3 operacoes
+
+        Thread de Nicanor; 6 operacoes
+
+        Thread de Vania; 2 operacoes
+
+        Thread de Heloisa; 3 operacoes
+
+        Sala 1 reservada para Nicanor
+        Sala 4 reservada para Vania
+        Sala 6 reservada para Heloisa
+        Sala 0 reservada para Valter
+        Sala 7 reservada para Helena
+        Sala 9 reservada para Helio
+        Sala 6 liberada
+        Sala 6 reservada para Heloisa
+        Sala 0 liberada
+        Sala 0 reservada para Valter
+        Sala 6 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 7 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 9 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 6 reservada para Helio
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 0 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 1 liberada
+        Sala 1 reservada para Nicanor
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 4 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 2 reservada para Vania
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 6 liberada
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 4 reservada para Helio
+        Nao foi possivel reservar uma sala para Heloisa
+        Sala 1 liberada
+        Sala 6 reservada para Nicanor
+        Sala 1 reservada para Heloisa
+        Sala 6 liberada
+        Sala 0 reservada para Nicanor
+        Sala 1 liberada
+        Sala 0 liberada
+        Sala 6 reservada para Nicanor
+        Sala 2 liberada
+        Sala 4 liberada
+        Sala 7 reservada para Helio
+        Sala 6 liberada
+        Sala 0 reservada para Nicanor
+        Sala 7 liberada
+        Sala 1 reservada para Helio
+        Sala 0 liberada
+        Sala 1 liberada
+        Sala 4 reservada para Helio
+        Sala 4 liberada
+        Sala 4 reservada para Helio
+        Sala 4 liberada
+        Sala 4 reservada para Helio
+        Sala 4 liberada
+    \end{verbatim}
+
+
+\end{document}
